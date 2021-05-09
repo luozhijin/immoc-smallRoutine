@@ -1,0 +1,42 @@
+<!-- 头部输入框 -->
+<view class="header">
+  <input type="text" 
+    class="header-input" 
+    placeholder="AngularJS·MySQL·Java" 
+    placeholder-class="header-input-placeholder"
+    bindinput="handleInputChange"
+  /> 
+  <icon type="search" 
+    class="header-input-icon"
+    size="13"
+    bindinput="handleInputChange"
+    wx:if="{{showIcon}}"
+  />
+</view>
+<!-- 头部导航 -->
+<view class="navigator">
+  <view
+    wx:for="{{tabs}}"
+    wx:key="type"
+    class="navigator-item"
+    data-type="{{item.type}}"
+    bindtap="changeType"
+  >
+    <image
+      class="navigator-img"
+      src="../../resources/{{item.type}}.png"
+    />
+    {{item.name}}
+    <view 
+      hidden="{{type !== item.type}}"
+      class="navigator-acitve navigator-active-{{item.type}}"
+    />
+  </view>
+</view>
+
+<!-- 推荐模块 -->
+<include src='./recommend.wxml' />
+<!-- 活动模块 -->
+<include src='./activity.wxml' />
+ 
+  
